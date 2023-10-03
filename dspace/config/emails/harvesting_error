@@ -19,4 +19,4 @@ ${params[3]}
 Exception:
 ${params[4]}
 
-The ${config.get('dspace.name')} Team
+${config.get('dspace.name')}

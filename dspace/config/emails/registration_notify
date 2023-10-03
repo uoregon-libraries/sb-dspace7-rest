@@ -16,4 +16,4 @@ Name:                   ${params[2]}
 Email:                  ${params[3]}
 Date:                   ${params[4]}
 
-The ${config.get('dspace.name')} Team
+${config.get('dspace.name')}

@@ -13,4 +13,4 @@ ${params[0]}
 
 This file will remain available for at least ${params[1]} hours.
 
-The ${config.get('dspace.name')} Team
+${config.get('dspace.name')}

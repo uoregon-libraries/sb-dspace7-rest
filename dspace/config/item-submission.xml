@@ -19,6 +19,11 @@
     <submission-map>
         <!-- Default submission process -->
         <name-map collection-handle="default" submission-name="traditional"/>
+        <name-map collection-handle="1794/11771" submission-name="simple"/>
+        <name-map collection-handle="1794/11968" submission-name="pub"/>
+        <name-map collection-handle="1794/13662" submission-name="dlcd"/>
+        <name-map collection-handle="1794/18841" submission-name="ugrad-research"/>
+        <name-map collection-handle="1794/17" submission-name="pppm"/>
 
         <!-- Sample Entities Collection configuration based on the demo Entities dataset available at:
              https://github.com/DSpace-Labs/AIP-Files/releases/tag/demo-entities-data
@@ -235,6 +240,58 @@
             <processing-class>org.dspace.app.rest.submit.step.ShowIdentifiersStep</processing-class>
             <type>identifiers</type>
         </step-definition>
+
+        <!-- UO  -->
+        <step-definition id="complete">
+            <heading>submit.progressbar.complete</heading>
+            <processing-class>org.dspace.submit.step.CompleteStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+        <step-definition mandatory="true" id="traditionalpage1">
+            <heading>submit.progressbar.describe.step1</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+        <step-definition mandatory="true" id="traditionalpage2">
+            <heading>submit.progressbar.describe.step2</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+        <step-definition mandatory="true" id="onepage1">
+            <heading>submit.progressbar.describe.step1</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+        <step-definition mandatory="true" id="simplepage1">
+            <heading>submit.progressbar.describe.step1</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+        <step-definition mandatory="true" id="pubpage1">
+            <heading>submit.progressbar.describe.step1</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+        <step-definition mandatory="true" id="dlcdpage1">
+            <heading>submit.progressbar.describe.step1</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+        <step-definition mandatory="true" id="ugrad-researchpage1">
+            <heading>submit.progressbar.describe.step1</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+        <step-definition mandatory="true" id="pppmpage1">
+            <heading>submit.progressbar.describe.step1</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+        <step-definition mandatory="true" id="pppmpage2">
+            <heading>submit.progressbar.describe.step2</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
     </step-definitions>
 
     <!-- The submission-definitions map lays out the detailed definition of -->
@@ -391,6 +448,52 @@
         <submission-process name="openAIREOrganizationSubmission">
             <step id="collection"/>
             <step id="openAIREOrganizationForm"/>
+        </submission-process>
+
+        <!-- UO -->
+        <!-- <submission-process name="traditional">
+            <step id="collection"/>
+            <step id="traditionalpage1"/>
+            <step id="traditionalpage2"/>
+            <step id="upload"/>
+            <step id="license"/>
+        </submission-process> -->
+        <!-- <submission-process name="one">
+            <step id="collection"/>
+            <step id="onepage1"/>
+            <step id="upload"/>
+            <step id="license"/>
+        </submission-process> -->
+        <submission-process name="simple">
+            <step id="collection"/>
+            <step id="simplepage1"/>
+            <step id="upload"/>
+            <step id="license"/>
+        </submission-process>
+        <submission-process name="pub">
+            <step id="collection"/>
+            <step id="pubpage1"/>
+            <step id="upload"/>
+            <step id="license"/>
+        </submission-process>
+        <submission-process name="dlcd">
+            <step id="collection"/>
+            <step id="dlcdpage1"/>
+            <step id="upload"/>
+            <step id="license"/>
+        </submission-process>
+        <submission-process name="ugrad-research">
+            <step id="collection"/>
+            <step id="ugrad-researchpage1"/>
+            <step id="upload"/>
+            <step id="license"/>
+        </submission-process>
+        <submission-process name="pppm">
+            <step id="collection"/>
+            <step id="pppmpage1"/>
+            <step id="pppmpage2"/>
+            <step id="upload"/>
+            <step id="license"/>
         </submission-process>
     </submission-definitions>
 

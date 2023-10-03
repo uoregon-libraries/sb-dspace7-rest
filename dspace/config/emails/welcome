@@ -11,4 +11,4 @@ edit and/or approve submissions.
 
 If you need assistance with your account, please email ${config.get("mail.helpdesk")}.
 
-The ${config.get('dspace.name')} Team
+${config.get('dspace.name')}

@@ -17,4 +17,4 @@ Date:    ${params[1]}
 ${params[0]} DOI ${params[4]} for ${params[2]} with ID ${params[3]} failed:
 ${params[5]}
 
-The ${config.get('dspace.name')} Team
+${config.get('dspace.name')}

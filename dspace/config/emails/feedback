@@ -24,4 +24,4 @@ Referring Page: ${params[3]}
 User Agent: ${params[4]}
 Session: ${params[5]}
 
-The ${config.get('dspace.name')} Team
+${config.get('dspace.name')}

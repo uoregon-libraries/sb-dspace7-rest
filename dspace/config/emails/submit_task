@@ -21,4 +21,4 @@ page:  ${params[4]}
 
 Many thanks!
 
-The ${config.get('dspace.name')} Team
+${config.get('dspace.name')}

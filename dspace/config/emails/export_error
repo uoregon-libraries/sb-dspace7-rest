@@ -13,4 +13,4 @@ The item export you requested was not completed, due to the following reason:
 For more information you may contact your system administrator:
  ${params[1]}
 
-The ${config.get('dspace.name')} Team
+${config.get('dspace.name')}

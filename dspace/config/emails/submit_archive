@@ -18,4 +18,4 @@ Please use this identifier when citing your submission.
 
 Many thanks!
 
-The ${config.get('dspace.name')} Team
+${config.get('dspace.name')}

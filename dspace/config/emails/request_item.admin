@@ -17,4 +17,4 @@ Document Handle: ${params[1]}
 File ID: ${params[0]}
 Token: ${params[2]}
 
-The ${config.get('dspace.name')} Team
+${config.get('dspace.name')}

@@ -20,4 +20,4 @@ ${params[4]}
 
 Action taken on the submission: ${params[5]}
 
-The ${config.get('dspace.name')} Team
+${config.get('dspace.name')}
