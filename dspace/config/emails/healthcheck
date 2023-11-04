@@ -7,3 +7,5 @@
 The healthcheck finished with the following output:
 
 ${params[0]}
+
+The ${config.get('dspace.name')} Team

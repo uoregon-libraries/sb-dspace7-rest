@@ -14,3 +14,5 @@ Collections
 -----------
 List of changed items : ${params[1]}
 
+
+The ${config.get('dspace.name')} Team
