@@ -208,7 +208,7 @@
                     <repeatable>false</repeatable>
                     <label>Abstract</label>
                     <input-type>textarea</input-type>
-                    <hint>Enter the abstract of the item.</hint>
+                    <hint>Enter the abstract of the item. To render math formula symbols, use default delimiters $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics. </hint>
                     <required></required>
                 </field>
             </row>
@@ -1112,7 +1112,7 @@
                     <repeatable>false</repeatable>
                     <label>Abstract</label>
                     <input-type>textarea</input-type>
-                    <hint>Enter the abstract of the item.</hint>
+                    <hint>Enter the abstract of the item. To render math formula symbols, use default delimiters $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics. </hint>
                     <required></required>
                 </field>
             </row>
@@ -1702,7 +1702,7 @@
               <repeatable>false</repeatable>
               <label>Abstract</label>
               <input-type>textarea</input-type>
-              <hint>Enter the abstract for this item. </hint>
+              <hint>Enter the abstract of the item. To render math formula symbols, use default delimiters $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics. </hint>
               <required/>
           </field>
         </row>
@@ -1842,7 +1842,7 @@
             <repeatable>false</repeatable>
             <label>Abstract</label>
             <input-type>textarea</input-type>
-            <hint>Enter the abstract of the item. </hint>
+            <hint>Enter the abstract of the item. To render math formula symbols, use default delimiters $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics. </hint>
             <required/>
           </field>
         </row>

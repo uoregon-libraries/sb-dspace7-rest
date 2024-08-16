@@ -1,0 +1,30 @@
+## E-mail sent with the information filled out in a contactus form.
+##
+## Parameters: {0} current date
+##             {1} email address that the user provided
+##             {2} logged in as
+##             {3} page that the user was on when they selected contactus
+##             {4} User-Agent HTTP Header
+##             {5} Session Id
+##             {6} The user's comments
+##
+## See org.dspace.core.Email for information on the format of this file.
+##
+#set($subject = "${config.get('dspace.name')}: Contactus Form Information")
+
+Comments:
+
+${params[9]}
+
+
+Date: ${params[0]}
+Email: ${params[1]}
+Name: ${params[2]}
+Relationship: ${params[3]}
+Related: ${params[4]}
+Logged In As: ${params[5]}
+Referring Page: ${params[6]}
+User Agent: ${params[7]}
+Session: ${params[8]}
+
+${config.get('dspace.name')}
