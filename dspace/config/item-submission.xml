@@ -293,6 +293,8 @@
             <!--<step id="sample"/> -->
 
             <step id="collection"/>
+            <!--Step will be to Upload the item -->
+            <step id="upload"/>
             <!-- To include the 'Show Identifiers' step, uncomment the line below. Make sure
                  that identifiers.cfg and identifier-service.xml are properly configured. -->
             <!--<step id="identifiers"/>-->
@@ -306,8 +308,6 @@
             <!-- Uncomment this step to show when appropriate publisher policies retrieved from SHERPA/RoMEO -->
             <!-- <step id="sherpaPolicies"/> -->
 
-            <!--Step will be to Upload the item -->
-            <step id="upload"/>
 
             <!-- <step id="extractionstep"/> -->
 
@@ -319,37 +319,37 @@
         </submission-process>
         <submission-process name="simple">
             <step id="collection"/>
-            <step id="simplepage1"/>
             <step id="upload"/>
+            <step id="simplepage1"/>
             <step id="cclicense"/>
             <step id="license"/>
         </submission-process>
         <submission-process name="pub">
             <step id="collection"/>
-            <step id="pubpage1"/>
             <step id="upload"/>
+            <step id="pubpage1"/>
             <step id="cclicense"/>
             <step id="license"/>
         </submission-process>
         <submission-process name="dlcd">
             <step id="collection"/>
-            <step id="dlcdpage1"/>
             <step id="upload"/>
+            <step id="dlcdpage1"/>
             <step id="cclicense"/>
             <step id="license"/>
         </submission-process>
         <submission-process name="ugrad-research">
             <step id="collection"/>
-            <step id="ugrad-researchpage1"/>
             <step id="upload"/>
+            <step id="ugrad-researchpage1"/>
             <step id="cclicense"/>
             <step id="license"/>
         </submission-process>
         <submission-process name="pppm">
             <step id="collection"/>
+            <step id="upload"/>
             <step id="pppmpage1"/>
             <step id="pppmpage2"/>
-            <step id="upload"/>
             <step id="cclicense"/>
             <step id="license"/>
         </submission-process>
@@ -361,10 +361,10 @@
          -->
         <submission-process name="Publication">
             <step id="collection"/>
+            <step id="upload"/>
             <!-- Publications use a custom first step, but share page 2 with "traditional" Item form -->
             <step id="publicationStep"/>
             <step id="traditionalpagetwo"/>
-            <step id="upload"/>
             <step id="license"/>
         </submission-process>
 
@@ -374,8 +374,8 @@
          -->
         <submission-process name="Person">
             <step id="collection"/>
-            <step id="personStep"/>
             <step id="upload"/>
+            <step id="personStep"/>
             <step id="license"/>
         </submission-process>
 
@@ -385,8 +385,8 @@
          -->
         <submission-process name="Project">
             <step id="collection"/>
-            <step id="projectStep"/>
             <step id="upload"/>
+            <step id="projectStep"/>
             <step id="license"/>
         </submission-process>
 
@@ -396,8 +396,8 @@
          -->
         <submission-process name="OrgUnit">
             <step id="collection"/>
-            <step id="orgUnitStep"/>
             <step id="upload"/>
+            <step id="orgUnitStep"/>
             <step id="license"/>
         </submission-process>
 
@@ -407,8 +407,8 @@
          -->
         <submission-process name="Journal">
             <step id="collection"/>
-            <step id="journalStep"/>
             <step id="upload"/>
+            <step id="journalStep"/>
             <step id="license"/>
         </submission-process>
 
@@ -418,8 +418,8 @@
          -->
         <submission-process name="JournalVolume">
             <step id="collection"/>
-            <step id="journalVolumeStep"/>
             <step id="upload"/>
+            <step id="journalVolumeStep"/>
             <step id="license"/>
         </submission-process>
 
@@ -429,22 +429,22 @@
          -->
         <submission-process name="JournalIssue">
             <step id="collection"/>
-            <step id="journalIssueStep"/>
             <step id="upload"/>
+            <step id="journalIssueStep"/>
             <step id="license"/>
         </submission-process>
 
         <!-- OpenAIRE submission processes -->
         <submission-process name="openAIREPublicationSubmission">
             <step id="collection"/>
+            <!--Step will be to Upload the item -->
+            <!-- step id="upload-with-embargo"/-->
+            <step id="upload"/>
 
             <!--Step will be to Describe the item. -->
             <step id="openAIREPublicationPageoneForm"/>
             <step id="openAIREPublicationPagetwoForm"/>
 
-            <!--Step will be to Upload the item -->
-            <!-- step id="upload-with-embargo"/-->
-            <step id="upload"/>
 
             <!--Step will be to Sign off on the License -->
             <step id="license"/>
