@@ -208,7 +208,7 @@
                     <repeatable>false</repeatable>
                     <label>Abstract</label>
                     <input-type>textarea</input-type>
-                    <hint>Enter the abstract of the item. To render math formula symbols, use default delimiters $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics. </hint>
+                    <hint>Enter the abstract of the item. To render math formula symbols, use default delimiters $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics.</hint>
                     <required></required>
                 </field>
             </row>
@@ -1112,7 +1112,7 @@
                     <repeatable>false</repeatable>
                     <label>Abstract</label>
                     <input-type>textarea</input-type>
-                    <hint>Enter the abstract of the item. To render math formula symbols, use default delimiters $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics. </hint>
+                    <hint>Enter the abstract of the item. To render math formula symbols, use default delimiters $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics.</hint>
                     <required></required>
                 </field>
             </row>
@@ -1405,7 +1405,7 @@
             <dc-qualifier/>
             <repeatable>true</repeatable>
             <label>Subject Keywords</label>
-            <input-type>onebox</input-type>
+            <input-type>tag</input-type>
             <hint> Enter appropriate subject keywords or phrases below. </hint>
             <required/>
           </field>
@@ -1480,7 +1480,7 @@
             <dc-qualifier/>
             <repeatable>true</repeatable>
             <label>Subject keywords</label>
-            <input-type>onebox</input-type>
+            <input-type>tag</input-type>
             <hint> Enter appropriate subject keywords or phrases below. </hint>
             <required/>
           </field>
@@ -1591,7 +1591,7 @@
             <dc-qualifier/>
             <repeatable>true</repeatable>
             <label>Subject keywords</label>
-            <input-type>onebox</input-type>
+            <input-type>tag</input-type>
             <hint>Enter appropriate subject keywords or phrases below. </hint>
             <required/>
           </field>
@@ -1690,7 +1690,7 @@
             <dc-qualifier/>
             <repeatable>true</repeatable>
             <label>Subject Keywords</label>
-            <input-type>onebox</input-type>
+            <input-type>tag</input-type>
             <hint>Enter appropriate subject keywords or phrases. </hint>
             <required/></field>
           </row>
@@ -1702,7 +1702,7 @@
               <repeatable>false</repeatable>
               <label>Abstract</label>
               <input-type>textarea</input-type>
-              <hint>Enter the abstract of the item. To render math formula symbols, use default delimiters $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics. </hint>
+              <hint>Enter the abstract for this item. </hint>
               <required/>
           </field>
         </row>
@@ -1829,7 +1829,7 @@
             <dc-qualifier/>
             <repeatable>true</repeatable>
             <label>Subject Keywords</label>
-            <input-type>onebox</input-type>
+            <input-type>tag</input-type>
             <hint>Enter appropriate subject keywords or phrases. </hint>
             <required/>
           </field>
@@ -1869,6 +1869,20 @@
             <hint>Enter any other description or comments in this box. </hint>
             <required/>
           </field>
+        </row>
+      </form>
+
+      <form name="licesnse_uo">
+        <row>
+            <field>
+                <dc-schema>dc</dc-schema>
+                <dc-element>rights</dc-element>
+                <dc-qualifier/>
+                <repeatable>false</repeatable>
+                <label>Licenses UO</label>
+                <input-type value-pairs-name="licenses_uo_rights">dropdown</input-type>
+                <required/>
+            </field>
         </row>
       </form>
 
@@ -2556,6 +2570,45 @@
           <stored-value>Oregon Department of Land Conservation and Development</stored-value>
         </pair>
       </value-pairs>
+
+    <value-pairs value-pairs-name="licenses_uo_rights" dc-term="rights">
+        <pair>
+          <displayed-value>Creative Commons BY-NC-ND 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY-NC-ND 4.0-US</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons  BY-NC-SA 4.0-US</displayed-value>
+          <stored-value>Creative Commons  BY-NC-SA</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons BY-NC 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY-NC 4.0-US</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons BY 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons BY-SA 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY-SA</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons BY-ND 4.0-US</displayed-value>
+          <stored-value>Creative Commons BY-ND</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Creative Commons CC0 1.0 Universal</displayed-value>
+          <stored-value>Creative Commons CC0 1.0 Universal</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>Public Domain</displayed-value>
+          <stored-value>Public Domain</stored-value>
+        </pair>
+        <pair>
+          <displayed-value>All Rights Reserved.</displayed-value>
+          <stored-value>All Rights Reserved.</stored-value>
+        </pair>
+    </value-pairs>
 
     </form-value-pairs>
 
