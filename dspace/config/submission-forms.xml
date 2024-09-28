@@ -1879,7 +1879,7 @@
                 <dc-element>rights</dc-element>
                 <dc-qualifier/>
                 <repeatable>false</repeatable>
-                <label>Licenses UO</label>
+                <label>Licenses</label>
                 <input-type value-pairs-name="licenses_uo_rights">dropdown</input-type>
                 <required/>
             </field>
@@ -2605,8 +2605,8 @@
           <stored-value>Public Domain</stored-value>
         </pair>
         <pair>
-          <displayed-value>All Rights Reserved.</displayed-value>
-          <stored-value>All Rights Reserved.</stored-value>
+          <displayed-value>All Rights Reserved</displayed-value>
+          <stored-value>All Rights Reserved</stored-value>
         </pair>
     </value-pairs>
 

@@ -203,7 +203,7 @@
         </step-definition>
 
         <!-- This optional step is from SB DSpace 6  -->
-        <step-definition id="licesnse_uo" mandatory="false">
+        <step-definition id="licesnse_uo" mandatory="true">
             <heading>submit.progressbar.describe.licenses_uo</heading>
             <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
             <type>submission-form</type>
