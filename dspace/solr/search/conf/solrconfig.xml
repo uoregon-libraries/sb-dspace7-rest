@@ -42,8 +42,8 @@
     <schemaFactory class="ClassicIndexSchemaFactory"/>
 
     <indexConfig>
-        <ramBufferSizeMB>100</ramBufferSizeMB>
-        <maxBufferedDocs>1000</maxBufferedDocs>
+        <ramBufferSizeMB>512</ramBufferSizeMB>
+        <maxBufferedDocs>1500</maxBufferedDocs>
         <lockType>${solr.lock.type:native}</lockType>
         <!-- Set to true to "write detailed debug information from the indexing process as Solr log messages" -->
         <infoStream>false</infoStream>
