@@ -1881,6 +1881,7 @@
                 <repeatable>false</repeatable>
                 <label>Licenses</label>
                 <input-type value-pairs-name="licenses_uo_rights">dropdown</input-type>
+                <hint>Choose a license to manage author copyright terms. Creative Commons BY-NC-ND 4.0-US is the default for this archive, but you may another choice.</hint>
                 <required/>
             </field>
         </row>
