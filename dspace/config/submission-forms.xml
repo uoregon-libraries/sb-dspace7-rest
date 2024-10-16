@@ -1882,7 +1882,7 @@
                 <label>Licenses</label>
                 <input-type value-pairs-name="licenses_uo_rights">dropdown</input-type>
                 <hint>Choose a license to manage author copyright terms. Creative Commons BY-NC-ND 4.0-US is the default for this archive, but you may another choice.</hint>
-                <required/>
+                <required>You must choose a license for this submission</required>
             </field>
         </row>
       </form>
@@ -1933,12 +1933,24 @@
 
         <value-pairs value-pairs-name="common_types" dc-term="type">
             <pair>
+                <displayed-value>Adopted Plan</displayed-value>
+                <stored-value>Adopted Plan</stored-value>
+            </pair>
+            <pair>
                 <displayed-value>Animation</displayed-value>
                 <stored-value>Animation</stored-value>
             </pair>
             <pair>
+                <displayed-value>Architectural Plan</displayed-value>
+                <stored-value>Architectural Plan</stored-value>
+            </pair>
+            <pair>
                 <displayed-value>Article</displayed-value>
                 <stored-value>Article</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Blog</displayed-value>
+                <stored-value>Blog</stored-value>
             </pair>
             <pair>
                 <displayed-value>Book</displayed-value>
@@ -1951,6 +1963,10 @@
             <pair>
                 <displayed-value>Dataset</displayed-value>
                 <stored-value>Dataset</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Educational Plan</displayed-value>
+                <stored-value>Educational Plan</stored-value>
             </pair>
             <pair>
                 <displayed-value>Learning Object</displayed-value>
@@ -2005,16 +2021,32 @@
                 <stored-value>Technical Report</stored-value>
             </pair>
             <pair>
-                <displayed-value>Thesis</displayed-value>
-                <stored-value>Thesis</stored-value>
+                <displayed-value>Terminal Project</displayed-value>
+                <stored-value>Terminal Project</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Thesis / Dissertation</displayed-value>
+                <stored-value>Thesis / Dissertation</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>University Record</displayed-value>
+                <stored-value>University Record</stored-value>
             </pair>
             <pair>
                 <displayed-value>Video</displayed-value>
                 <stored-value>Video</stored-value>
             </pair>
             <pair>
+                <displayed-value>Website</displayed-value>
+                <stored-value>Website</stored-value>
+            </pair>
+            <pair>
                 <displayed-value>Working Paper</displayed-value>
                 <stored-value>Working Paper</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Yearbook</displayed-value>
+                <stored-value>Yearbook</stored-value>
             </pair>
             <pair>
                 <displayed-value>Other</displayed-value>
