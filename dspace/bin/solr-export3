@@ -1,0 +1,87 @@
+#!/bin/bash
+
+DIR=/usr/local/dspace-angular/src/assets/data
+
+if [ ! -d "$DIR" ]; then
+    mkdir -p $DIR
+    chown -R tomcat:tomcat $DIR
+fi
+
+# Check if input file is provided
+# if [ $# -ne 1 ]; then
+#     echo "Usage: $0 <input_file>"
+#     exit 1
+# fi
+
+input_file1="all-communities.json";
+input_file2="all-collections.json";
+
+
+# Check if input file exists
+if [ ! -f "${DIR}/$input_file1" ]; then
+    echo "Error: Input file '$input_file1' not found"
+    exit 1
+fi
+
+if [ ! -f "${DIR}/$input_file2" ]; then
+    echo "Error: Input file '$input_file2' not found"
+    exit 1
+fi
+
+# Check if jq is installed
+if ! command -v jq &> /dev/null; then
+    echo "Error: jq is required but not installed. Please install jq first."
+    exit 1
+fi
+
+# Base URL for the Solr query
+base_url="http://localhost:8983/solr/statistics/select"
+params="wt=json&rows=0&indent=true&omitHeader=true"
+top_itemdl_url="q=type:0&facet.field=owningItem&facet.limit=10&facet.mincount=1&facet=true&fq=-(bundleName:%5B*+TO+*%5D-bundleName:ORIGINAL)&fq=isBot:false&fl=score"
+
+# Extract UUIDs using jq and process each one
+jq -r '.response.docs[]."search.resourceid"' "${DIR}/${input_file1}" | while read -r uuid; do
+
+    mkdir -p "${DIR}/${uuid}"
+
+    echo "Processing UUID: $uuid"
+ 
+    # Construct the query URL based on the input filename
+    query_url="${base_url}?${top_itemdl_url}&${params}&fq=owningComm:${uuid}"
+
+    # Output file for this UUID
+    output_file="${DIR}/${uuid}/top10-item-downloads.json"
+
+    if curl -s "$query_url" -o "$output_file"; then
+        echo "Successfully saved results to $output_file"
+    else
+        echo "Error: Failed to query Solr for UUID: $uuid"
+        continue
+    fi
+
+done
+
+sleep 5
+
+jq -r '.response.docs[]."search.resourceid"' "${DIR}/${input_file2}" | while read -r uuid; do
+
+    mkdir -p "${DIR}/${uuid}"
+
+    echo "Processing UUID: $uuid"
+ 
+    query_url="${base_url}?${top_itemdl_url}&${params}&fq=owningColl:${uuid}"
+
+    # Output file for this UUID
+    output_file="${DIR}/${uuid}/top10-item-downloads.json"
+
+    if curl -s "$query_url" -o "$output_file"; then
+        echo "Successfully saved results to $output_file"
+    else
+        echo "Error: Failed to query Solr for UUID: $uuid"
+        continue
+    fi
+
+done
+
+
+echo "Processing complete. Results are saved in the '${DIR}' directory"

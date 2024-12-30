@@ -1,0 +1,53 @@
+#!/bin/bash
+
+DIR=/usr/local/dspace-angular/src/assets/data
+
+if [ ! -d "$DIR" ]; then
+    mkdir -p $DIR
+    chown -R tomcat:tomcat $DIR
+fi
+
+# All top communities
+curl "http://localhost:8983/solr/search/select?indent=on&rows=2147483647&q=search.resourcetype:Community&fq=-location.parent:%5B*+TO+*%5D&fl=search.resourceid,dc.title&wt=json&omitHeader=true" -o $DIR/top-communities.json
+# All communities
+curl "http://localhost:8983/solr/search/select?indent=on&rows=2147483647&q=search.resourcetype:Community&wt=json&fl=dc.title,search.resourceid&omitHeader=true" -o $DIR/all-communities.json
+# All collections
+curl "http://localhost:8983/solr/search/select?indent=on&rows=2147483647&q=search.resourcetype:Collection&fl=dc.title,search.resourceid&wt=json&omitHeader=true" -o $DIR/all-collections.json
+# All items
+curl "http://localhost:8983/solr/search/select?indent=on&rows=2147483647&q=search.resourcetype:Item&fl=dc.title,search.resourceid&wt=json&omitHeader=true" -o $DIR/all-items.json
+# All item count
+curl "http://localhost:8983/solr/search/select?q=search.resourcetype:Item&rows=0&indent=on&wt=json&omitHeader=true" -o $DIR/all-item-count.json > /dev/null 2>&1
+# All parent child relationships
+curl "http://localhost:8983/solr/search/select?fl=search.resourceid%2C%20location.parent&indent=true&q.op=OR&q=search.resourcetype%3A(Community%20OR%20Collection)&rows=2147483647&wt=json&omitHeader=true" -o $DIR/all-relations.json
+
+### SITE ### 
+# Site pageviews
+curl -g  "http://localhost:8983/solr/statistics/select?indent=on&rows=0&q=type:2+AND+isBot:false&fl=id,latitude,longitude,time,ip,city,countryCode,owningColl&wt=json&omitHeader=true" -o $DIR/site-pageviews.json
+# Site downloads
+curl -g "http://localhost:8983/solr/statistics/select?indent=on&rows=0&q=type:0+AND+isBot:false&fq=-(bundleName:%5B*+TO+*%5D-bundleName:ORIGINAL)&fl=id,latitude,longitude,time,ip,city,countryCode,owningColl&wt=json&omitHeader=true" -o $DIR/site-downloads.json
+
+# Site pageviews 6 months
+curl -g "http://localhost:8983/solr/statistics/select?indent=on&rows=0&facet=true&facet.range=time&facet.range.start=NOW-6MONTH/MONTH&facet.range.end=NOW&facet.range.gap=%2B1MONTH&q=type:2+AND+isBot:false&wt=json&omitHeader=true" -o $DIR/site-pageviews-6months.json
+# Site downloads 6 months
+curl -g "http://localhost:8983/solr/statistics/select?indent=on&rows=0&facet=true&facet.range=time&facet.range.start=NOW-6MONTH/MONTH&facet.range.end=NOW&facet.range.gap=%2B1MONTH&q=type:0+AND+isBot:false&wt=json&omitHeader=true&fq=-(bundleName:%5B*+TO+*%5D-bundleName:ORIGINAL)" -o $DIR/site-downloads-6months.json
+
+# Site country downloads
+curl -g "http://localhost:8983/solr/statistics/select?q=type:0&rows=0&facet.field=countryCode&facet.mincount=1&facet.limit=-1&facet.sort=count&facet=true&fq=isBot:false&indent=true&fq=-(bundleName:%5B*+TO+*%5D-bundleName:ORIGINAL)&omitHeader=true" -o $DIR/site-country-downloads.json
+
+# Site top 10 item pageviews
+curl "http://localhost:8983/solr/statistics/select?q=type:2&rows=0&facet=true&facet.field=id&facet.limit=10&facet.mincount=1&fl=score&fq=isBot:false&fq=statistics_type:view&indent=true&wt=json&omitHeader=true" -o $DIR/site-top10-item-pageviews.json
+# Site top 10 item downloads
+curl "http://localhost:8983/solr/statistics/select?q=type:0&rows=0&facet=true&facet.field=owningItem&facet.limit=10&facet.mincount=1&fq=-(bundleName:%5B*+TO+*%5D-bundleName:ORIGINAL)&fq=isBot:false&indent=true&fl=score&wt=json&omitHeader=true" -o $DIR/site-top10-item-downloads.json
+
+# All communities downloads
+curl "http://localhost:8983/solr/statistics/select?q=type:0&fq=statistics_type:view&fq=isBot:false&rows=0&facet=true&facet.field=owningComm&facet.mincount=1&facet.limit=-1&fq=-(bundleName:%5B*+TO+*%5D-bundleName:ORIGINAL)&wt=json&omitHeader=true&fq=-owningComm:*unmigrated*" -o $DIR/all-communities-downloads.json
+# All communities pageviews
+curl "http://localhost:8983/solr/statistics/select?q=type:2&fq=isBot:false&fq=statistics_type:view&rows=0&facet=true&facet.field=owningComm&facet.mincount=1&facet.limit=-1&wt=json&omitHeader=true&fq=-owningComm:*unmigrated*" -o $DIR/all-communities-pageviews.json
+# All collections downloads
+curl "http://localhost:8983/solr/statistics/select?q=type:0&fq=statistics_type:view&rows=0&fq=isBot:false&facet=true&facet.field=owningColl&facet.mincount=1&facet.limit=-1&fq=-(bundleName:%5B*+TO+*%5D-bundleName:ORIGINAL)&wt=json&omitHeader=true&fq=-owningColl:*unmigrated*" -o $DIR/all-collections-downloads.json
+# All collections pageviews
+curl "http://localhost:8983/solr/statistics/select?q=type:2&fq=isBot:false&fq=statistics_type:view&rows=0&facet=true&facet.field=owningColl&facet.mincount=1&facet.limit=-1&wt=json&omitHeader=true&fq=-owningColl:*unmigrated*" -o $DIR/all-collections-pageviews.json
+# All communities and collections pageviews
+curl "http://localhost:8983/solr/statistics/select?q=type:2&fq=isBot:false&fq=statistics_type:view&fq=-owningComm:*unmigrated*&fq=-owningColl:*unmigrated*&rows=0&facet=true&facet.field=owningComm&facet.field=owningColl&facet.mincount=0&facet.limit=-1&wt=json&omitHeader=true" -o $DIR/all-comm-coll-pageviews.json
+# All communities and collections downloads
+curl "http://localhost:8983/solr/statistics/select?q=type:0&fq=isBot:false&fq=statistics_type:view&fq=-owningComm:*unmigrated*&fq=-owningColl:*unmigrated*&rows=0&facet=true&facet.field=owningComm&facet.field=owningColl&facet.mincount=0&facet.limit=-1&fq=-(bundleName:%5B*+TO+*%5D-bundleName:ORIGINAL)&wt=json&omitHeader=true" -o $DIR/all-comm-coll-downloads.json

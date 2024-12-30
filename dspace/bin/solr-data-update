@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Function to safely delete a directory
+DATA_DIR=/usr/local/dspace-angular/src/assets/data/
+DATA_DIR1=/usr/local/dspace-ui-deploy/dist/server/assets/data
+DATA_DIR2=/usr/local/dspace-ui-deploy/dist/browser/assets/data
+
+if [ -d "$DATA_DIR1" ]; then
+   rm -rf $DATA_DIR1
+fi
+
+if [ -d "$DATA_DIR2" ]; then
+    rm -rf $DATA_DIR2
+fi
+
+if [ ! -d "$DATA_DIR" ]; then
+    echo "Error: Source directory $DATA_DIR does not exist."
+    return 1
+fi
+
+cp -TR "$DATA_DIR" "$DATA_DIR1"
+cp -TR "$DATA_DIR" "$DATA_DIR2"
+
+chown -R tomcat: /usr/local/dspace-ui-deploy/dist
+echo "Data updating process finished."

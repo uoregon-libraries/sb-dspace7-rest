@@ -1,0 +1,101 @@
+#!/bin/bash
+
+# export-data.sh - Master script to run multiple data loading scripts with pauses and input file handling
+
+DIRECTORY="/usr/local/dspace/bin"
+DIR=/usr/local/dspace-angular/src/assets/data
+
+# Print a header
+echo "Starting data loading process..."
+
+# Run the first script with input file
+echo "Running solr-export..."
+if [ -f "$DIRECTORY/solr-export" ]; then
+    source "$DIRECTORY/solr-export"
+else
+    echo "Error: solr-export not found!"
+    exit 1
+fi
+
+# Pause for 5 seconds after previous script
+echo "Pausing for 5 seconds before next script..."
+sleep 5
+
+echo "Running solr-export2..."
+if [ -f "$DIRECTORY/solr-export2" ]; then
+    source "$DIRECTORY/solr-export2"
+else
+    echo "Error: solr-export2 not found!"
+    exit 1
+fi
+
+# Pause for 5 seconds after previous script
+echo "Pausing for 5 seconds before next script..."
+sleep 5
+
+echo "Running solr-export3..."
+if [ -f "$DIRECTORY/solr-export3" ]; then
+    source "$DIRECTORY/solr-export3"
+else
+    echo "Error: solr-export3 not found!"
+    exit 1
+fi
+
+# Pause for 5 seconds after previous script
+echo "Pausing for 5 seconds before next script..."
+sleep 5
+
+echo "Running solr-export4..."
+if [ -f "$DIRECTORY/solr-export4" ]; then
+    source "$DIRECTORY/solr-export4"
+else
+    echo "Error: solr-export4 not found!"
+    exit 1
+fi
+
+# Pause for 5 seconds after previous script
+echo "Pausing for 5 seconds before next script..."
+sleep 5
+
+echo "Running solr-export5..."
+if [ -f "$DIRECTORY/solr-export5" ]; then
+    source "$DIRECTORY/solr-export5"
+else
+    echo "Error: solr-export5 not found!"
+    exit 1
+fi
+
+# Pause for 5 seconds after previous script
+echo "Pausing for 5 seconds before next script..."
+sleep 5
+
+echo "Running solr-export6..."
+if [ -f "$DIRECTORY/solr-export6" ]; then
+    source "$DIRECTORY/solr-export6"
+else
+    echo "Error: solr-export6 not found!"
+    exit 1
+fi
+
+chown -R tomcat:tomcat $DIR
+
+# Add error checking and exit status
+if [ $? -eq 0 ]; then
+    echo "All data loading scripts completed successfully!"
+else
+    echo "Some scripts encountered errors during execution."
+    exit 1
+fi
+
+echo "Data loading process finished."
+
+echo "Pausing for 5 seconds before next script..."
+# Update data
+
+echo "Running solr-data-update..."
+if [ -f "$DIRECTORY/solr-data-update" ]; then
+    source "$DIRECTORY/solr-data-update"
+else
+    echo "Error: solr-data-update not found!"
+    exit 1
+fi
